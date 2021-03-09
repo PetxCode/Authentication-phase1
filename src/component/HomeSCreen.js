@@ -93,7 +93,7 @@ const HomeScreen = () => {
     getUser();
     AddNewTask();
     ReadNewTask();
-  }, []);
+  }, [userData, readUserData]);
 
   return (
     <div>
@@ -105,6 +105,7 @@ const HomeScreen = () => {
       <br />
       <br />
       <center>
+        {" "}
         {toggle ? (
           <div
             style={{
@@ -299,6 +300,9 @@ const HomeScreen = () => {
           </div>
         ))}
       </div>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
