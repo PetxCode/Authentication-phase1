@@ -6,22 +6,32 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AppProvider } from "./component/Auth";
 import AuthHome from "./component/AuthHome";
 import AuthLogin from "./component/AuthLogin";
-import PrivateRoute from "./component/PrivateRoute";
+import PrivateRoute from "./BestComponent/PrivateRoute";
+import HomeDesign from "./BestComponent/HomeDesign";
+import Registration from "./BestComponent/Registration";
+import { ProviderState } from "./BestComponent/AuthFile";
+import HeaderView from "./BestComponent/HeaderView";
+import CoursePage from "./BestComponent/CoursePage";
+import AboutPage from "./BestComponent/AboutPage";
+import StudyPage from "./BestComponent/StudyPage";
 
 function App() {
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <AppProvider>
+      <ProviderState>
         <Router>
+          <HeaderView /> <br />
+          <br />
+          <br />
           <Switch>
-            <PrivateRoute exact path="/" component={AuthHome} />
-            <Route exact path="/login" component={AuthLogin} />
+            <Route exact path="/" component={HomeDesign} />
+            <PrivateRoute exact path="/course" component={CoursePage} />
+            <Route exact path="/about" component={AboutPage} />
+            <PrivateRoute exact path="/study" component={StudyPage} />
+            <Route exact path="/login" component={Registration} />
           </Switch>
         </Router>
-      </AppProvider>
+      </ProviderState>
     </div>
   );
 }
